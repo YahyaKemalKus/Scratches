@@ -1,0 +1,60 @@
+from tkinter import *
+def asd():
+        pencere = Tk()
+        pencere.title("SOHBET")
+        pencere.geometry("400x300+500+0")
+        pencere.resizable(False, False)
+        def renk_ayar():
+            renk_menusu=Toplevel()
+            renk_menusu.geometry("450x350")
+            secim1 = StringVar()
+            secim1.set("black")
+            secim2=StringVar()
+            secim2.set("green")
+            secim3=StringVar()
+            secim3.set("black")
+            secim4=StringVar()
+            secim4.set("black")
+            renkler=[["kirmizi","red"],["koyu kirmizi","darkred"],["koyu mavi","blue"],["mavi","cyan"],["acik mavi","lightblue"],["yesil","green"],
+                     ["acik yesil","light green"],["sari","yellow"],["acik sari","lightyellow"],["beyaz","white"],["gri","grey"],["siyah","black"]]
+            def renkolustur(renk,asilrenk,relx,rely,secim):
+                renk1=Checkbutton(renk_menusu,text=renk,variable=secim,onvalue=asilrenk,offvalue="")
+                renk1.place(relx=relx,rely=rely)
+            for i in range(12):
+                renkolustur(renkler[i][0],renkler[i][1],0,i/14+0.1,secim1)
+                renkolustur(renkler[i][0], renkler[i][1], 0.25, i / 14 + 0.1, secim2)
+                renkolustur(renkler[i][0], renkler[i][1], 0.50, i / 14 + 0.1, secim3)
+                renkolustur(renkler[i][0], renkler[i][1], 0.75, i / 14 + 0.1, secim4)
+            def ayarla():
+                dialog.config(foreground=secim2.get(),background=secim1.get())
+                mesaj.config(foreground=secim2.get(),background=secim3.get())
+                buton1.config(foreground=secim2.get(),background=secim4.get())
+            alan1=Label(renk_menusu,text="ArkaPlan")
+            alan2=Label(renk_menusu,text="Yazi Rengi")
+            alan3=Label(renk_menusu,text="Mesaj Kutusu")
+            alan4=Label(renk_menusu,text="Buton Rengi")
+            alan1.place(relx=0.03,rely=0.02),alan2.place(relx=0.28,rely=0.02)
+            alan3.place(relx=0.53,rely=0.02),alan4.place(relx=0.78,rely=0.02)
+            buton2=Button(renk_menusu,text="onayla",command=ayarla)
+            buton2.place(relx=0.9,rely=0.92)
+        dialog = Listbox(pencere, height=17,selectbackground="white",selectforeground="black")
+        dialog.pack(fill=X)
+        dialog.config(foreground='red', background='black', font=("Arial", 9, "italic bold"))
+        mesaj = Entry(width=50)
+        mesaj.pack(side=LEFT)
+        mesaj.config(foreground='green', background='black', text='Gonder', font=("Arial", 10))
+        menu1=Menu(pencere)
+        pencere.config(menu=menu1)
+        menu2=Menu(menu1,tearoff=0)
+        menu3=Menu(menu2,tearoff=0)
+        menu1.add_cascade(label="secenekler",menu=menu2)
+        menu2.add_cascade(label="Renk Ayarlari",command=renk_ayar)
+        for i in range(8,20,2):
+            menu3.add_command(label=str(i),command=lambda:dialog.config(font=("Arial", i, "italic bold")))
+
+        buton1 = Button(pencere, text="Gonder", command=lambda :dialog.insert(END,mesaj.get()))
+        buton1.pack(fill=X)
+        buton1.config(foreground='darkgreen', background='black', text='Gonder')
+        mainloop()
+
+asd()
