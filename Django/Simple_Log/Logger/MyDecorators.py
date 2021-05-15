@@ -40,7 +40,6 @@ def log_to_json(filename:str,mode = 'r+',**kwargs):
 
 
 def MiddlewareLogger(func):
-
     def wrapper(*args, **kwargs):
         request = args[1]
         username = request.user.username
