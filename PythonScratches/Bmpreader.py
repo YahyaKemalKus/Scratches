@@ -1,11 +1,11 @@
 ﻿import struct
 import sys
 import pygame
-#jpglerin renklendirme bytelari 54.byettan itibaren basliyor.
-#jpgler okunurken en alt soldan basliyor.soldan saga dogru okuyor.eger yatay(x) 6 pixel varsayarsak her bir pixel renklendirmesi icin 3'er byte aliyor.
+#bmplerin renklendirme bytelari 54.byettan itibaren basliyor.
+#bmpler okunurken en alt soldan basliyor.soldan saga dogru okuyor.eger yatay(x) 6 pixel varsayarsak her bir pixel renklendirmesi icin 3'er byte aliyor.
 #6x3 yapildiginda 18 cikiyor ve 4'un kati degil.4'un kati yapmak icin o satirin byte dizisine 2 tane degeri 0(\x00) olan byte ekliyor ve 20'ye tamamliyor.
 #4 un kati olmayan her yatay pixel sayisi icin bunu yapiyor.
-#colors={"\x00\x00\x00":1} belki bi ara sozlugu buyutup ufak bi fotoshop programi yapabilirim.
+#colors={"\x00\x00\x00":1} belki bi ara sozlugu buyutup ufak bi photoshop programi yapabilirim.
 class BmpReader:
     def __init__(self,path):
         with open(file=path,mode="rb") as f:
