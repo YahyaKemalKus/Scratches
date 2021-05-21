@@ -1,0 +1,8 @@
+<div>
+    <form action="{% url 'chat:room_created_page'%}" method="POST">
+        {% csrf_token %}
+        <label>Room name</label>
+        <input type="text" name="room_name">
+        <input type="submit" value="Create">
+    </form>
+</div>

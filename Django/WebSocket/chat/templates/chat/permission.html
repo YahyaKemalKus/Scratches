@@ -1,0 +1,20 @@
+<div>
+    <form action="{% url 'chat:permitted_page'%}" method="POST">
+        {% csrf_token %}
+        <label>Username</label>
+        <select name="user">
+            {% for user in users%}
+                <option value={{user.username}}> {{user.username}} </option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label>Chat Room</label>
+        <select name="room">
+             {% for room in rooms%}
+                <option value={{room.id}}> {{room.name}} </option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+    <a href="/">Main Page</a>
+</div>
