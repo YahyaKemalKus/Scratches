@@ -1,0 +1,2 @@
+Eskiden yazdigim bir kod olduğu için spagetti halde.O zamanlar dizayndan haberim yoktu.
+Tam olarak bitirmemiştim.Açıklamalar Satranc.py içinde mevcut.
