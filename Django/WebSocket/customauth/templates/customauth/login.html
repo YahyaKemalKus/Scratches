@@ -1,0 +1,12 @@
+
+
+<form action="/verify/" class="login-form" method="POST">
+    {% csrf_token %}
+    <input type="text" placeholder="username" name="username" style="display: block;" >
+    <br>
+    <input type="password" placeholder="password" name="password" style="display: block;">
+    <br>
+    <input type="submit" value="Log in" style="display: block;">
+
+</form>
+<button type="submit"><a href="/register/" style="text-decoration:none; color:inherit">Register</a></button>

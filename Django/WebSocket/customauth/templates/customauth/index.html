@@ -1,0 +1,48 @@
+<h1>ANA SAYFA</h1>
+
+{% load authtags %}
+{% with admin=request|is_admin loggedin=request|is_loggedin %}
+
+
+
+
+{% if admin %}
+    <h1>WELCOME ADMIN! YOU CAN VIEW EVERYTHING </h1>
+    <h3>YOU CAN GIVE USERS PERMISSIONS TO ALLOW THEM JOIN CHAT ROOMS.<a href="{% url 'chat:permission_page'%}">HERE</a></h3>
+    <h3>YOU CAN CREATE NEW CHAT ROOM.<a href="{% url 'chat:newroom_page'%}">HERE</a></h3>
+{% endif %}
+
+
+{% if loggedin %}
+    <h3>ONLY LOGGED IN CLIENTS CAN SEE THIS STATE<br>
+        HERE IS THE ADMIN PAGE BUT YOU MUST BE THE ADMIN!<br>
+
+        <a href="/admin/">http://127.0.0.1:8000/admin</a>
+    </h3>
+    <h3>YOU CAN VIEW AVAILABLE CHAT ROOMS FROM <a href="{% url 'chat:main_page' %}">HERE</a></h3>
+
+    <form action="/logout/" class="login-form" method="POST">
+        {% csrf_token%}
+        <input type="submit" value="Log out">
+    </form>
+
+
+    {%else%}
+        <form action="/login/" class="login-form" method="POST">
+            {% csrf_token%}
+            <input type="submit" value="Log in">
+        </form>
+
+        <form action="/register/" class="login-form" method="POST">
+            {% csrf_token%}
+            <input type="submit" value="Register">
+        </form>
+
+{% endif %}
+
+
+
+
+
+
+{%endwith%}
