@@ -56,6 +56,11 @@ class Chat(AsyncJsonWebsocketConsumer):
                     }}))
 
                 await self.update_db(username, ' Connected!', room_id)
+            else:
+                await self.close()
+        else:
+            await self.close()
+
 
     async def disconnect(self, close_code):
         room_id = self.scope['url_route']['kwargs']['room_id']
