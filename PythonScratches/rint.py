@@ -27,10 +27,11 @@ class rint:
 
             #step 1 : array=[rint(x.val*y.val)-2]
             #step 2 : array=[rint(   rint( x.val * y.val ) - 2   )] --> result of whole operation is always an instance of rint class
-
+            x.val = 7
+            y.val = 9
             print(array)
 
-            >>[22]
+            >>[61]
 
         Sorry if I made mistakes in english.
     """
