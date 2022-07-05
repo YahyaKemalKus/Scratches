@@ -57,7 +57,7 @@ class FraktalAgac(turtle.Turtle):
         kalem2.setheading(yon + self.dal_acisi)
         kalem2.pendown()
         kalem2.forward(self.bslngc_dal_uzunlugu)
-        kalem2.hideturtle()
+    
 
         kalem3 = turtle.Turtle()
         kalem3.hideturtle()
@@ -69,7 +69,7 @@ class FraktalAgac(turtle.Turtle):
         kalem3.setheading(yon - self.dal_acisi)
         kalem3.pendown()
         kalem3.forward(self.bslngc_dal_uzunlugu)
-        kalem3.hideturtle()
+     
 
 
         self.__konumlar.append([kalem2.pos(), int(kalem2.heading())])
